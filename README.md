@@ -19,7 +19,7 @@ A cloud-based EV charging recommendation app built with React and AWS.
 - Geocoding: postcodes.io + Nominatim
 
 ## Live Demo
-https://smart-ev-optimiser.amplifyapp.com
+[https://smart-ev-optimiser.amplifyapp.com](https://main.d3bah2m7t3pga7.amplifyapp.com/)
 
 ## Architecture
 React → API Gateway → Lambda → Open Charge Map API
