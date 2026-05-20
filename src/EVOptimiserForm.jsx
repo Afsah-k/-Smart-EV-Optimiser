@@ -334,7 +334,7 @@ const [gpsError,   setGpsError]             = useState(null);
         </div>
 
         {/* Daily driving */}
-        <div style={sty.field}>
+        <div style={{ ...sty.field, gridColumn: "1 / -1" }}>
           <label style={sty.label}>Daily driving need (miles)</label>
           <input type="number" min="0" max="500"
             value={form.dailyDriving}
@@ -342,7 +342,7 @@ const [gpsError,   setGpsError]             = useState(null);
             style={sty.input} />
         </div>
         {/* Location */}
-        <div style={sty.field}>
+        <div style={{ ...sty.field, gridColumn: "1 / -1" }}>
           <label style={sty.label}>Location</label>
           <div style={{ display: "flex", gap: 8 }}>
             <input type="text"
@@ -471,7 +471,11 @@ const sty = {
   battPct:      { fontFamily: "monospace", fontSize: 20, fontWeight: 700, minWidth: 52, textAlign: "right" },
 
   // Form
-  formGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem" },
+  formGrid: { 
+  display: "grid", 
+  gridTemplateColumns: "repeat(2, 1fr)", 
+  gap: "1rem 2rem",
+},
   field:    { display: "flex", flexDirection: "column", gap: 6 },
   label:    { fontSize: 11, color: "#a0bbc8", textTransform: "uppercase", letterSpacing: "0.07em", fontFamily: "monospace" },
   sliderTop:{ display: "flex", justifyContent: "space-between", alignItems: "baseline" },
