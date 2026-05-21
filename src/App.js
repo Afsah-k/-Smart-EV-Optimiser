@@ -49,41 +49,39 @@ function App() {
 
   return (
     <div className="app">
+      <div className="app-inner">
 
-      {/* Show form only when no result yet */}
-      {!result && (
-        <EVOptimiserForm onSubmit={handleSubmit} />
-      )}
+        {/* LEFT — form */}
+        <div className="app-left">
+          {!result && <EVOptimiserForm onSubmit={handleSubmit} />}
 
-      {/* Loading */}
-      {loading && (
-        <p style={{ textAlign: 'center', color: '#00d4aa', marginTop: '1rem', fontFamily: 'monospace' }}>
-          Finding best charging options...
-        </p>
-      )}
+          {loading && (
+            <p style={{ textAlign: "center", color: "#00d4aa",
+              marginTop: "1rem", fontFamily: "monospace" }}>
+              Finding best charging options...
+            </p>
+          )}
 
-      {/* Error */}
-      {error && (
-        <div style={{ maxWidth: 640, margin: '1rem auto' }}>
-          <p style={{ textAlign: 'center', color: '#ef4444', marginBottom: '1rem' }}>
-            ⚠ {error}
-          </p>
-          <button onClick={handleReset} style={{
-            display: 'block', margin: '0 auto',
-            background: 'transparent', border: '1px solid #1e2d45',
-            borderRadius: 8, color: '#a0bbc8', padding: '8px 16px',
-            cursor: 'pointer', fontFamily: 'sans-serif',
-          }}>
-            ← Try again
-          </button>
+          {error && (
+            <div style={{ maxWidth: 480, margin: "1rem auto" }}>
+              <p style={{ textAlign: "center", color: "#ef4444",
+                marginBottom: "1rem" }}>⚠ {error}</p>
+              <button onClick={handleReset} style={{
+                display: "block", margin: "0 auto",
+                background: "transparent", border: "1px solid #1e2d45",
+                borderRadius: 8, color: "#a0bbc8", padding: "8px 16px",
+                cursor: "pointer", fontFamily: "sans-serif",
+              }}>← Try again</button>
+            </div>
+          )}
         </div>
-      )}
 
-      {/* Results card */}
-      {result && (
-        <EVResults result={result} onReset={handleReset} />
-      )}
+        {/* RIGHT — results */}
+        <div className="app-right">
+          {result && <EVResults result={result} onReset={handleReset} />}
+        </div>
 
+      </div>
     </div>
   );
 }
