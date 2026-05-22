@@ -47,43 +47,37 @@ function App() {
     setError(null);
   };
 
-  return (
-    <div className="app">
-      <div className="app-inner">
+ return (
+  <div className="app">
+    <div className="app-inner">
 
-        {/* LEFT — form */}
-        <div className="app-left">
-          {!result && <EVOptimiserForm onSubmit={handleSubmit} />}
+      {!result && <EVOptimiserForm onSubmit={handleSubmit} />}
 
-          {loading && (
-            <p style={{ textAlign: "center", color: "#00d4aa",
-              marginTop: "1rem", fontFamily: "monospace" }}>
-              Finding best charging options...
-            </p>
-          )}
+      {loading && (
+        <p style={{ textAlign: "center", color: "#00d4aa",
+          marginTop: "2rem", fontFamily: "monospace", fontSize: 14 }}>
+          ⚡ Finding best charging options...
+        </p>
+      )}
 
-          {error && (
-            <div style={{ maxWidth: 480, margin: "1rem auto" }}>
-              <p style={{ textAlign: "center", color: "#ef4444",
-                marginBottom: "1rem" }}>⚠ {error}</p>
-              <button onClick={handleReset} style={{
-                display: "block", margin: "0 auto",
-                background: "transparent", border: "1px solid #1e2d45",
-                borderRadius: 8, color: "#a0bbc8", padding: "8px 16px",
-                cursor: "pointer", fontFamily: "sans-serif",
-              }}>← Try again</button>
-            </div>
-          )}
+      {error && (
+        <div style={{ marginTop: "1rem" }}>
+          <p style={{ textAlign: "center", color: "#ef4444",
+            marginBottom: "1rem" }}>⚠ {error}</p>
+          <button onClick={handleReset} style={{
+            display: "block", margin: "0 auto",
+            background: "transparent", border: "1px solid #1e2d45",
+            borderRadius: 8, color: "#a0bbc8", padding: "8px 16px",
+            cursor: "pointer", fontFamily: "sans-serif",
+          }}>← Try again</button>
         </div>
+      )}
 
-        {/* RIGHT — results */}
-        <div className="app-right">
-          {result && <EVResults result={result} onReset={handleReset} />}
-        </div>
+      {result && <EVResults result={result} onReset={handleReset} />}
 
-      </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default App;
